@@ -2,7 +2,7 @@ const settings = document.querySelector('.settings');
 const settingsBtn = document.querySelector('.settings-btn');
 const imageSection = document.querySelector('.image-section');
 
-const eventName = document.querySelector('event-name');
+const eventName = document.querySelector('#event-name');
 const eventDay = document.querySelector('#event-day');
 const eventMonth = document.querySelector('#event-month');
 const eventYear = document.querySelector('#event-year');
@@ -19,6 +19,14 @@ const eventSpan = document.querySelector('.event');
 
 let userTImes;
 
+const appUpddate = () => {
+    eventSpan.textContent = eventName.value;
+    eventName.value = '';
+    imageSection.style.backgroundImage = `url('${eventImg.value}')`
+}
+
 settingsBtn.addEventListener('click', () => {
     settings.classList.toggle('active')
 })
+
+saveBtn.addEventListener('click', appUpddate)
